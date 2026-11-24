@@ -55,8 +55,14 @@
     nrf21540_spi21_default: nrf21540_spi21_default {
         group1 {
             psels = <NRF_PSEL(SPIM_SCK, 1, 5)>,
-                    <NRF_PSEL(SPIM_MISO, 1, 6)>,
                     <NRF_PSEL(SPIM_MOSI, 1, 7)>;
+        };
+        /* Pull-down on MISO: with no nRF21540EK the line reads 0x00
+         * instead of floating, so detection is predictable.
+         */
+        group2 {
+            psels = <NRF_PSEL(SPIM_MISO, 1, 6)>;
+            bias-pull-down;
         };
     };
 

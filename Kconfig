@@ -1,0 +1,14 @@
+# Application Kconfig
+
+# Add an application power model to the MPSL FEM power-model choice.
+# It uses the nRF21540 PA gain only when the nRF21540EK is detected at boot;
+# otherwise the nRF54L15 radio alone provides the full requested power.
+choice MPSL_FEM_POWER_MODEL_CHOICE
+
+config APP_FEM_POWER_MODEL_AUTO_DETECT
+	bool "Application model: nRF21540 gain only when the EK is detected"
+	depends on MPSL_FEM_NRF21540_GPIO_SPI
+
+endchoice
+
+source "Kconfig.zephyr"
