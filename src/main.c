@@ -32,7 +32,6 @@
 /* nRF54L15 maximum is +8 dBm for CSP or +7 dBm for QFN. */
 #define NRF21540_MAX_TX_POWER_DBM 8
 #endif
-//this is has been chaanges in this fffff 
 
 #if NRF21540_USE_FEM
 #define FEM_SPI_NODE DT_NODELABEL(nrf_radio_fem_spi)
